@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="CentOS,Tools,">
 
 
 
@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="duduupup">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="准备工作配置epel源1sudo yum -y install epel-release.noarch 安装fcitx安装fcitx及相关工具1sudo yum install qtwebkit alien dpkg opencc redhat-lsb fcitx fcitx-pinyin fcitx-configtool im-chooser 结束ibus进程1sudo pkill ibus-d">
+<meta name="keywords" content="CentOS,Tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7(x64)使用搜狗输入法">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/CentOS7-sogou/index.html">
 <meta property="og:site_name" content="duduupup">
+<meta property="og:description" content="准备工作配置epel源1sudo yum -y install epel-release.noarch 安装fcitx安装fcitx及相关工具1sudo yum install qtwebkit alien dpkg opencc redhat-lsb fcitx fcitx-pinyin fcitx-configtool im-chooser 结束ibus进程1sudo pkill ibus-d">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/02/27/CentOS7-sogou/sogou.jpg">
+<meta property="og:updated_time" content="2019-02-28T07:16:59.703Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="duduupup">
+<meta name="twitter:title" content="CentOS7(x64)使用搜狗输入法">
+<meta name="twitter:description" content="准备工作配置epel源1sudo yum -y install epel-release.noarch 安装fcitx安装fcitx及相关工具1sudo yum install qtwebkit alien dpkg opencc redhat-lsb fcitx fcitx-pinyin fcitx-configtool im-chooser 结束ibus进程1sudo pkill ibus-d">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/27/CentOS7-sogou/sogou.jpg">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/27/CentOS7-sogou/">
 
 
 
 
 
-  <title>duduupup</title>
+  <title>CentOS7(x64)使用搜狗输入法 | duduupup</title>
   
 
 
@@ -140,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -244,9 +250,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -276,9 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/27/CentOS7-sogou/" itemprop="url">CentOS7(x64)使用搜狗输入法</a></h1>
+          <h1 class="post-title" itemprop="name headline">CentOS7(x64)使用搜狗输入法</h1>
         
 
         <div class="post-meta">
@@ -350,9 +354,7 @@
       
 
       
-        
-          
-            <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="配置epel源"><a href="#配置epel源" class="headerlink" title="配置epel源"></a>配置epel源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install epel-release.noarch</span><br></pre></td></tr></table></figure>
+        <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="配置epel源"><a href="#配置epel源" class="headerlink" title="配置epel源"></a>配置epel源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install epel-release.noarch</span><br></pre></td></tr></table></figure>
 <h1 id="安装fcitx"><a href="#安装fcitx" class="headerlink" title="安装fcitx"></a>安装fcitx</h1><h2 id="安装fcitx及相关工具"><a href="#安装fcitx及相关工具" class="headerlink" title="安装fcitx及相关工具"></a>安装fcitx及相关工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install qtwebkit alien dpkg opencc redhat-lsb fcitx fcitx-pinyin fcitx-configtool im-chooser</span><br></pre></td></tr></table></figure>
 <h2 id="结束ibus进程"><a href="#结束ibus进程" class="headerlink" title="结束ibus进程"></a>结束ibus进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pkill ibus-daemon</span><br></pre></td></tr></table></figure>
 <h2 id="关闭gnome-shell对键盘的监听"><a href="#关闭gnome-shell对键盘的监听" class="headerlink" title="关闭gnome-shell对键盘的监听"></a>关闭gnome-shell对键盘的监听</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings set org.gnome.settings-daemon.plugins.keyboard active false</span><br></pre></td></tr></table></figure>
@@ -366,8 +368,6 @@
 <p>在弹出框中,选择查找sogou并添加搜狗输入法</p>
 <h2 id="选择使用搜狗输入法"><a href="#选择使用搜狗输入法" class="headerlink" title="选择使用搜狗输入法"></a>选择使用搜狗输入法</h2><p>点击桌面右下角数字图标,里面有一个键盘的图标,在其中选择搜狗输入法即可,具体如下图所示:<br><img src="/2019/02/27/CentOS7-sogou/sogou.jpg" alt=""></p>
 
-          
-        
       
     </div>
     
@@ -382,14 +382,22 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/CentOS/" rel="tag"># CentOS</a>
+          
+            <a href="/tags/Tools/" rel="tag"># Tools</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -399,10 +407,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -410,6 +419,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -430,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -491,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置epel源"><span class="nav-number">1.1.</span> <span class="nav-text">配置epel源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装fcitx"><span class="nav-number">2.</span> <span class="nav-text">安装fcitx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装fcitx及相关工具"><span class="nav-number">2.1.</span> <span class="nav-text">安装fcitx及相关工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束ibus进程"><span class="nav-number">2.2.</span> <span class="nav-text">结束ibus进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭gnome-shell对键盘的监听"><span class="nav-number">2.3.</span> <span class="nav-text">关闭gnome-shell对键盘的监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换输入法fcitx"><span class="nav-number">2.4.</span> <span class="nav-text">切换输入法fcitx</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装搜狗拼音输入法"><span class="nav-number">3.</span> <span class="nav-text">安装搜狗拼音输入法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载搜狗拼音"><span class="nav-number">3.1.</span> <span class="nav-text">下载搜狗拼音</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转换deb为rpm包"><span class="nav-number">3.2.</span> <span class="nav-text">转换deb为rpm包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装搜狗拼音输入法-1"><span class="nav-number">3.3.</span> <span class="nav-text">安装搜狗拼音输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载fcitx"><span class="nav-number">3.4.</span> <span class="nav-text">重载fcitx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加搜狗输入法"><span class="nav-number">3.5.</span> <span class="nav-text">添加搜狗输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择使用搜狗输入法"><span class="nav-number">3.6.</span> <span class="nav-text">选择使用搜狗输入法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -631,6 +669,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

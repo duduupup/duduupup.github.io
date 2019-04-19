@@ -259,6 +259,1380 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/python-encoding/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/19/python-encoding/" itemprop="url">python-encoding</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T15:00:30+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/python-attr/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/19/python-attr/" itemprop="url">python属性管理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T12:41:09+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在python中,一个类或者类实例中的属性是动态的,也就是说,你可以往一个类或者实例中添加或者删除一个属性.</p>
+<p>python管理属性的方法一般有三种:</p>
+<ul>
+<li>操作符重载(<code>__getattr__, __setattr__, __delattr__和__getattribute__</code>)</li>
+<li>property内置函数</li>
+<li>描述符协议(descriptor)</li>
+</ul>
+<h1 id="使用操作符重载管理属性"><a href="#使用操作符重载管理属性" class="headerlink" title="使用操作符重载管理属性"></a>使用操作符重载管理属性</h1><ul>
+<li><code>__getattr__</code>方法将拦截所有未定义的属性获取</li>
+<li><code>__getattribute__</code>方法将拦截所有属性的获取</li>
+<li><code>__setattr__</code>方法将拦截所有的属性赋值</li>
+<li><code>__delattr__</code>方法将拦截所有的属性删除</li>
+</ul>
+<p>值得注意的是,<br>由于<code>__getattribute__, __setattr__, __delattr__</code>方法均是对所有的属性进行拦截,因而在重载他们的时候,一定要避免递归调用(否则,会引起死循环);<br>对于<code>__getattr__</code>方法,则没有那么多限制.<br>另外, 操作符重载方法调用不能委托给被包装的对象, 除非包装类自己重新定义这些方法(?).</p>
+<h2 id="重载-setattr-方法"><a href="#重载-setattr-方法" class="headerlink" title="重载__setattr__方法"></a>重载<code>__setattr__</code>方法</h2><p>在重载<code>__setattr__</code>方法时,不能使用<code>self.name = value</code>格式,否则会导致递归调用而陷入死循环,正确的做法应该是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def __setattr__(self, name, value):</span><br><span class="line">    # do something</span><br><span class="line">    object.__setattr__(self, name, value)</span><br><span class="line">    # do something</span><br></pre></td></tr></table></figure></p>
+<p>也可以将<code>object.__setattr__(self, name, value)</code>换成<code>self.__dict__[name] = value</code>,<br>但是一定要注意如果重载了<code>__getattribute__</code>方法,则必须保证<code>__getattribute__</code>方法重载正确.</p>
+<h2 id="重载-delattr-方法"><a href="#重载-delattr-方法" class="headerlink" title="重载__delattr__方法"></a>重载<code>__delattr__</code>方法</h2><p>在重载<code>__delattr__</code>方法时,不能使用<code>del self.name</code>格式,否则,它也会导致递归调用而陷入死循环.正确的做法应该是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def __delattr__(self, name):</span><br><span class="line">    # do something</span><br><span class="line">    object.__delattr__(self, name)</span><br><span class="line">    # do something</span><br></pre></td></tr></table></figure></p>
+<p>也可以将<code>object.__delattr__(self, name)</code>换成<code>del self.__dict__[name]</code>,<br>同样要注意如果重载了<code>__getattribute__</code>方法,则必须保证<code>__getattribute__</code>方法重载正确.</p>
+<h2 id="重载-getattribute-方法"><a href="#重载-getattribute-方法" class="headerlink" title="重载__getattribute__方法"></a>重载<code>__getattribute__</code>方法</h2><p>在重载<code>__getattribute__</code>方法时,不能使用<code>return self.name</code>格式,否则,也会导致递归调用而陷入死循环.正确的做法是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def __getattribute__(self, name):</span><br><span class="line">    # do something</span><br><span class="line">    value = object.__getattribute__(self, name)</span><br><span class="line">    # do something</span><br><span class="line">    return value</span><br></pre></td></tr></table></figure></p>
+<p>特别注意,不能将<code>object.__getattribute__(self, name)</code>替换为<code>self.__dict__[name]</code>来避免循环,<br>因为<code>self.__dict__</code>也会触发属性获取,所以依然会导致递归调用.</p>
+<h2 id="重载-getattr-方法"><a href="#重载-getattr-方法" class="headerlink" title="重载__getattr__方法"></a>重载<code>__getattr__</code>方法</h2><p>没有特殊要求,它的作用一般是用来定义用户获取了类或者类实例中没有定义的属性时,程序应该做出的回应.</p>
+<h1 id="使用descriptor管理属性"><a href="#使用descriptor管理属性" class="headerlink" title="使用descriptor管理属性"></a>使用descriptor管理属性</h1><p>descriptor是一种实现了<code>__get__</code>, <code>__set__</code>和<code>__delete__</code>这三种成员方法中任意一个或多个的特殊类.<br>下面是示例代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">class RevealAccess(object):</span><br><span class="line">    def __init__(self, val, name):</span><br><span class="line">        self.val = val</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def __get__(self, obj, cls):</span><br><span class="line">        print(&apos;get...&apos;, self.name)</span><br><span class="line">        return self.val</span><br><span class="line"></span><br><span class="line">    def __set__(self, obj, val):</span><br><span class="line">        print(&apos;set...&apos;, self.name)</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line">    def __delete__(self, obj):</span><br><span class="line">        print(&apos;delete...&apos;)</span><br><span class="line">        del self.val</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class MyClass(object):</span><br><span class="line">    x = RevealAccess(0, &apos;x&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [1]: m = MyClass()</span><br><span class="line"></span><br><span class="line">In [2]: m.x = 1</span><br><span class="line">(&apos;set...&apos;, &apos;x&apos;)</span><br><span class="line"></span><br><span class="line">In [3]: m.x</span><br><span class="line">(&apos;get...&apos;, &apos;x&apos;)</span><br><span class="line">Out[3]: 1</span><br><span class="line"></span><br><span class="line">In [4]: del m.x</span><br><span class="line">delete...</span><br><span class="line"></span><br><span class="line">In [5]: m.x</span><br><span class="line">(&apos;get...&apos;, &apos;x&apos;)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-7-ed46b668a20d&gt; in &lt;module&gt;()</span><br><span class="line">----&gt; 1 m.x</span><br><span class="line"></span><br><span class="line">/data/projects/ambari/ambari-stack/scripts/test.py in __get__(self, obj, cls)</span><br><span class="line">     47     def __get__(self, obj, cls):</span><br><span class="line">     48         print(&apos;get...&apos;, self.name)</span><br><span class="line">---&gt; 49         return self.val</span><br><span class="line">     50 </span><br><span class="line">     51     def __set__(self, obj, val):</span><br><span class="line"></span><br><span class="line">AttributeError: &apos;RevealAccess&apos; object has no attribute &apos;val&apos;</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用property类管理属性-只适用于新式类"><a href="#使用property类管理属性-只适用于新式类" class="headerlink" title="使用property类管理属性(只适用于新式类)"></a>使用property类管理属性(只适用于新式类)</h1><h2 id="property类"><a href="#property类" class="headerlink" title="property类"></a>property类</h2><p>property类实际上是python内部已经实现好的一种descriptor.在<strong>builtin</strong>.py, 可以看到property类的定义如下(内建类看不到具体实现,可以看到大致模样):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class property(object):</span><br><span class="line">    def deleter(self, *args, **kwargs): </span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def getter(self, *args, **kwargs): </span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def setter(self, *args, **kwargs): </span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def __delete__(self, obj): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; descr.__delete__(obj) &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def __get__(self, obj, type=None): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; descr.__get__(obj[, type]) -&gt; value &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line">        </span><br><span class="line">    def __set__(self, obj, value): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; descr.__set__(obj, value) &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def __getattribute__(self, name): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; x.__getattribute__(&apos;name&apos;) &lt;==&gt; x.name &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def __init__(self, fget=None, fset=None, fdel=None, doc=None): # known special case of property.__init__</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        property(fget=None, fset=None, fdel=None, doc=None) -&gt; property attribute</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    @staticmethod # known case of __new__</span><br><span class="line">    def __new__(S, *more): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; T.__new__(S, ...) -&gt; a new object with type S, a subtype of T &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    fdel = property(lambda self: object(), lambda self, v: None, lambda self: None)  # default</span><br><span class="line"></span><br><span class="line">    fget = property(lambda self: object(), lambda self, v: None, lambda self: None)  # default</span><br><span class="line"></span><br><span class="line">    fset = property(lambda self: object(), lambda self, v: None, lambda self: None)  # default</span><br></pre></td></tr></table></figure></p>
+<h2 id="示例-property实例"><a href="#示例-property实例" class="headerlink" title="示例: property实例"></a>示例: property实例</h2><p>说明, property的fget必选,其他两个参数可选<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">class A(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&apos;init...&apos;)</span><br><span class="line">        self._x = 0</span><br><span class="line"></span><br><span class="line">    def getx(self):</span><br><span class="line">        print(&apos;getx...&apos;)</span><br><span class="line">        return self._x</span><br><span class="line"></span><br><span class="line">    def setx(self, value):</span><br><span class="line">        print(&apos;setx...&apos;)</span><br><span class="line">        self._x = value</span><br><span class="line"></span><br><span class="line">    def delx(self):</span><br><span class="line">        print(&apos;delx...&apos;)</span><br><span class="line">        del self._x</span><br><span class="line"></span><br><span class="line">    x = property(getx, setx, delx)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [1]: a = A()</span><br><span class="line">init...</span><br><span class="line"></span><br><span class="line">In [2]: a.x = 1</span><br><span class="line">setx...</span><br><span class="line"></span><br><span class="line">In [3]: a.x</span><br><span class="line">getx...</span><br><span class="line">Out[3]: 1</span><br><span class="line"></span><br><span class="line">In [4]: del a.x</span><br><span class="line">delx...</span><br><span class="line"></span><br><span class="line">In [5]: a.x</span><br><span class="line">getx...</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-9-e27186f28a17&gt; in &lt;module&gt;()</span><br><span class="line">----&gt; 1 a.x</span><br><span class="line"></span><br><span class="line">/data/projects/ambari/ambari-stack/scripts/test.py in getx(self)</span><br><span class="line">      6     def getx(self):</span><br><span class="line">      7         print(&apos;getx...&apos;)</span><br><span class="line">----&gt; 8         return self._x</span><br><span class="line">      9 </span><br><span class="line">     10     def setx(self, value):</span><br><span class="line"></span><br><span class="line">AttributeError: &apos;A&apos; object has no attribute &apos;_x&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="示例-property装饰器"><a href="#示例-property装饰器" class="headerlink" title="示例: property装饰器"></a>示例: property装饰器</h2><p>说明,可以只有@property<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">class B(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&apos;init...&apos;)</span><br><span class="line">        self._x = 0</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def x(self):</span><br><span class="line">        print(&apos;getx...&apos;)</span><br><span class="line">        return self._x</span><br><span class="line"></span><br><span class="line">    @x.setter</span><br><span class="line">    def x(self, value):</span><br><span class="line">        print(&apos;setx...&apos;)</span><br><span class="line">        self._x = value</span><br><span class="line"></span><br><span class="line">    @x.deleter</span><br><span class="line">    def x(self):</span><br><span class="line">        print(&apos;delx...&apos;)</span><br><span class="line">        del self._x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [1]: b = B()</span><br><span class="line">init...</span><br><span class="line"></span><br><span class="line">In [2]: b.x = 1</span><br><span class="line">setx...</span><br><span class="line"></span><br><span class="line">In [3]: b.x</span><br><span class="line">getx...</span><br><span class="line">Out[3]: 2</span><br><span class="line"></span><br><span class="line">In [4]: del b.x</span><br><span class="line">delx...</span><br><span class="line"></span><br><span class="line">In [5]: b.x</span><br><span class="line">getx...</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-10-252ebe2d9b6c&gt; in &lt;module&gt;()</span><br><span class="line">----&gt; 1 b.x</span><br><span class="line"></span><br><span class="line">/data/projects/ambari/ambari-stack/scripts/test.py in x(self)</span><br><span class="line">     27     def x(self):</span><br><span class="line">     28         print(&apos;getx...&apos;)</span><br><span class="line">---&gt; 29         return self._x</span><br><span class="line">     30 </span><br><span class="line">     31     @x.setter</span><br><span class="line"></span><br><span class="line">AttributeError: &apos;B&apos; object has no attribute &apos;_x&apos;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/bond-lacp/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/bond-lacp/" itemprop="url">详说网卡绑定的LACP模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T15:13:30+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>服务器网卡使用绑定,出现上传多块网卡有流量,但是下载只有一块网卡有流量的现象.</p>
+<h1 id="服务器网卡bond0的配置"><a href="#服务器网卡bond0的配置" class="headerlink" title="服务器网卡bond0的配置"></a>服务器网卡bond0的配置</h1><p><img src="/2019/04/18/bond-lacp/bond.jpg" alt=""></p>
+<p>从上图可以看出:</p>
+<ul>
+<li>bond0使用的绑定模式是: LACP（Link Aggregation Control Protocol）</li>
+<li>bond0使用的发送策略是: XOR（此处根据Transmit Hash Policy看出layer2这个就是xor）</li>
+</ul>
+<h1 id="XOR算法"><a href="#XOR算法" class="headerlink" title="XOR算法"></a>XOR算法</h1><p>bond0使用的发送XOR算法，就是使用源MAC地址与目的MAC地址进行异或，然后再余上slave的count。</p>
+<h1 id="下载只有一个网卡有流量的原因分析"><a href="#下载只有一个网卡有流量的原因分析" class="headerlink" title="下载只有一个网卡有流量的原因分析"></a>下载只有一个网卡有流量的原因分析</h1><p>环境详细情况如下:</p>
+<ol>
+<li><p>bond0的mac地址以及网段信息，具体如下图所示：</p>
+<p> <img src="/2019/04/18/bond-lacp/ifconfig.jpg" alt=""></p>
+</li>
+<li><p>网关信息，具体如下图所示：</p>
+<p> <img src="/2019/04/18/bond-lacp/route.jpg" alt=""></p>
+</li>
+<li><p>mac地址和ip的对应关系,具体如下图所示:</p>
+<p> <img src="/2019/04/18/bond-lacp/arp.jpg" alt=""></p>
+</li>
+<li><p>下载的客户端有: 10.70.63.80，10.70.63.81，10.70.63.82，10.70.63.83，10.70.50.23</p>
+</li>
+</ol>
+<p>XOR算法使用的目的mac地址如下:</p>
+<ul>
+<li>因为10.70.63.80，10.70.63.81，10.70.63.82，10.70.63.83与server不在一个网段，所以send至这四个客户端的的目的mac地址都应该是网关10.70.50.254的mac地址。</li>
+<li>10.70.50.23的目的mac地址就是10.70.50.23的mac地址<br>XOR计算过程如下图所示:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [1]: bond0 = int(&apos;34:6b:5b:e9:48:b2&apos;.replace(&apos;:&apos;, &apos;&apos;), 16)</span><br><span class="line">In [2]: mac23 = int(&apos;00:50:56:a5:5d:02&apos;.replace(&apos;:&apos;, &apos;&apos;), 16)</span><br><span class="line">In [3]: mac254 = int(&apos;00:00:0c:07:ac:32&apos;.replace(&apos;:&apos;, &apos;&apos;), 16)</span><br><span class="line">In [4]: (bond0 ^ mac23) % 4</span><br><span class="line">Out[4]: 0</span><br><span class="line">In [5]: (bond0 ^ mac254) % 4</span><br><span class="line">Out[5]: 0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>可以看出，向10.70.63.80，10.70.63.81，10.70.63.82，10.70.63.83，10.70.50.23这五个客户端发送全部都使用一个网卡。</p>
+<h1 id="如何避免下载流量只在一个网卡"><a href="#如何避免下载流量只在一个网卡" class="headerlink" title="如何避免下载流量只在一个网卡"></a>如何避免下载流量只在一个网卡</h1><p>方法一: 调整客户端<br>首先客户端最好在10.70.50网段，不在10.70.50网段的下载都只能使用一个网卡<br>对于在10.70.50，通过上节中截图的方法，计算一下，发送使用的网卡应该是哪个，让多块网卡都是用起来。</p>
+<p>方法二：修改绑定模式<br>通过配置BONDING_OPT=”mode=4 xmit_hash_policy=layer2+3”, 使得Transmit Hash Policy成为: layer2+3<br>此时的XOR算法将变为同时使用mac地址和ip, 避免不是一个局域网的所有流量都在一个网卡上</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/python-import/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/python-import/" itemprop="url">__import__详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T10:53:08+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p><code>__import__</code>函数的作用</p>
+<ul>
+<li>使用import导入python模块时,默认调用的是<code>__import__</code>函数.</li>
+<li>直接使用该函数,一般用于动态加载模块.</li>
+</ul>
+</li>
+<li><p><code>__import__</code>函数的定义</p>
+<p> 在<code>__builtin__.py</code>中可以看到<code>__import__</code>函数的定义如下:<br> <code>__import__(name, globals={}, locals={}, fromlist=[], level=-1)</code></p>
+</li>
+<li><p><code>__import__</code>函数的参数</p>
+<p> 由<code>__import__</code>函数的定义可以看出, 该函数一共有五个参数, 其中name是必选参数, 其它是可选参数.<br> 特别要注意:</p>
+<ul>
+<li>只传入使用name参数,只能导入最顶层模块(如示例中<code>In[2]</code>和<code>Out[2]</code>);</li>
+<li>同时传入name和fromlist参数(只要list的len不是0即可,根本不care传入的内容),则可以导入子模块(如示例中<code>In[3]</code>和<code>Out[3]</code>);</li>
+<li><p>level参数,指定导入方式（相对导入或者绝对导入,默认两者都支持）</p>
+<p>REPL示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In[1]: __import__(&apos;resource_management&apos;)</span><br><span class="line">Out[1]: &lt;module &apos;resource_management&apos; from &apos;/data/projects/ambari/ambari-lib/2.7.3/resource_management/__init__.py&apos;&gt;</span><br><span class="line">In[2]: __import__(&apos;resource_management.core&apos;)</span><br><span class="line">Out[2]: &lt;module &apos;resource_management&apos; from &apos;/data/projects/ambari/ambari-lib/2.7.3/resource_management/__init__.py&apos;&gt;</span><br><span class="line">In[3]: __import__(&apos;resource_management.core&apos;, fromlist=[&apos;notexist&apos;])</span><br><span class="line">Out[3]: &lt;module &apos;resource_management.core&apos; from &apos;/data/projects/ambari/ambari-lib/2.7.3/resource_management/core/__init__.py&apos;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/python-basic/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/python-basic/" itemprop="url">python基础知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T09:53:08+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>经典类与新式类区别</p>
+<ul>
+<li>经典类的类型是instance,新式类的类型是其名称.</li>
+<li>经典类和新式类的集成顺序不同,这个只有在多重继承才会有这个问题,不深入探讨</li>
+<li>python3已经没有经典类了,所有的类都集成至object.</li>
+</ul>
+</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/java-basic/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/java-basic/" itemprop="url">java基础知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-09T09:09:14+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="静态类"><a href="#静态类" class="headerlink" title="静态类"></a>静态类</h1><ol>
+<li>java中普通的顶级类不能使用static关键字修饰,只有内部类可以使用static修饰,但是内部类并不一定要用static修饰</li>
+<li><p>普通内部类与静态内部类的区别</p>
+<ol>
+<li><p>普通内部类保有对外部类的引用,所以普通内部类的实例不能够单独存在,必须通过外部类的实例来实例化.<br>同时,普通内部类可以直接使用外部类的所有的属性和方法(包括私有的以及静态的属性和方法).<br>普通内部类的实例化如下:<br>Users users = new Users();<br>Users.CommonClass commonClass = users.new CommonClass();</p>
+</li>
+<li><p>静态内部类不保有对外部类的引用,因而静态内部类的实例可以单独存在.<br>同时,静态内部类也就只能访问外部类的静态属性和方法.<br>内部静态类的实例化如下:<br>StaticClass staticClass = new StaticClass();<br>Users.StaticClass staticClass2 = new Users.StaticClass(); // 推荐使用此方法</p>
+</li>
+</ol>
+</li>
+</ol>
+<p># </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/gnome-relive/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/08/gnome-relive/" itemprop="url">CentOS7界面卡死的解决方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T14:08:33+08:00">
+                2019-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>CentOS7的gnome界面经常会卡死,可以ssh(current_user@host)连接进入shell,通过如下命令令其复活:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill -9 gnome-shell</span><br></pre></td></tr></table></figure></p>
+<p>由于gnome界面经常卡死,可以将该命令写入到用户的~/.bashrc文件中,如下所示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias gnome-relive=&quot;pkill -9 gnome-shell&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以使用gnome-relive命令令gnome界面复活了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/python-remote-debug/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/06/python-remote-debug/" itemprop="url">使用pydevd对python进行远程调试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T16:38:36+08:00">
+                2019-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Pydev-Debugger-pydevd"><a href="#Pydev-Debugger-pydevd" class="headerlink" title="Pydev.Debugger(pydevd)"></a>Pydev.Debugger(pydevd)</h1><h2 id="安装pydevd"><a href="#安装pydevd" class="headerlink" title="安装pydevd"></a>安装pydevd</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pydevd</span><br></pre></td></tr></table></figure>
+<h2 id="pydevd原理"><a href="#pydevd原理" class="headerlink" title="pydevd原理"></a>pydevd原理</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/pip-install/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/06/pip-install/" itemprop="url">CentOS7下安装pip</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T16:31:52+08:00">
+                2019-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="下载pip安装脚本"><a href="#下载pip安装脚本" class="headerlink" title="下载pip安装脚本"></a>下载pip安装脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://bootstrap.pypa.io/get-pip.py</span><br></pre></td></tr></table></figure>
+<h1 id="执行安装"><a href="#执行安装" class="headerlink" title="执行安装"></a>执行安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/27/CentOS7-sogou/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -353,14 +1727,14 @@
         
           
             <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="配置epel源"><a href="#配置epel源" class="headerlink" title="配置epel源"></a>配置epel源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install epel-release.noarch</span><br></pre></td></tr></table></figure>
-<h1 id="安装fcitx"><a href="#安装fcitx" class="headerlink" title="安装fcitx"></a>安装fcitx</h1><h2 id="安装fcitx及相关工具"><a href="#安装fcitx及相关工具" class="headerlink" title="安装fcitx及相关工具"></a>安装fcitx及相关工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install qtwebkit alien dpkg opencc redhat-lsb fcitx fcitx-pinyin fcitx-configtool im-chooser</span><br></pre></td></tr></table></figure>
+<h1 id="安装fcitx"><a href="#安装fcitx" class="headerlink" title="安装fcitx"></a>安装fcitx</h1><h2 id="安装fcitx及相关工具"><a href="#安装fcitx及相关工具" class="headerlink" title="安装fcitx及相关工具"></a>安装fcitx及相关工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install fcitx fcitx-pinyin fcitx-configtool im-chooser</span><br></pre></td></tr></table></figure>
 <h2 id="结束ibus进程"><a href="#结束ibus进程" class="headerlink" title="结束ibus进程"></a>结束ibus进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pkill ibus-daemon</span><br></pre></td></tr></table></figure>
 <h2 id="关闭gnome-shell对键盘的监听"><a href="#关闭gnome-shell对键盘的监听" class="headerlink" title="关闭gnome-shell对键盘的监听"></a>关闭gnome-shell对键盘的监听</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings set org.gnome.settings-daemon.plugins.keyboard active false</span><br></pre></td></tr></table></figure>
 <h2 id="切换输入法fcitx"><a href="#切换输入法fcitx" class="headerlink" title="切换输入法fcitx"></a>切换输入法fcitx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imsettings-switch fcitx</span><br></pre></td></tr></table></figure>
 <p>如果下述的命令执行没有问题,则在~/.bashrc中添加以下的内容并reboot系统:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export XMODIFIERS=@im=fcitx</span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XIM=fcitx</span><br></pre></td></tr></table></figure></p>
 <h1 id="安装搜狗拼音输入法"><a href="#安装搜狗拼音输入法" class="headerlink" title="安装搜狗拼音输入法"></a>安装搜狗拼音输入法</h1><h2 id="下载搜狗拼音"><a href="#下载搜狗拼音" class="headerlink" title="下载搜狗拼音"></a>下载搜狗拼音</h2><p>下载地址: <a href="http://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="noopener">http://pinyin.sogou.com/linux/?r=pinyin</a><br>选择Linux 64位版本,下载的文件名类似:sogoupinyin_2.2.0.0108_amd64.deb</p>
-<h2 id="转换deb为rpm包"><a href="#转换deb为rpm包" class="headerlink" title="转换deb为rpm包"></a>转换deb为rpm包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install alien</span><br><span class="line">sudo alien -vcr sogoupinyin_2.2.0.0108_amd64.deb</span><br></pre></td></tr></table></figure>
-<h2 id="安装搜狗拼音输入法-1"><a href="#安装搜狗拼音输入法-1" class="headerlink" title="安装搜狗拼音输入法"></a>安装搜狗拼音输入法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh --force sogoupinyin-2.2.0.0108-2.x86_64.rpm</span><br><span class="line">cp /usr/lib/x86_64-linux-gnu/fcitx/fcitx-sogoupinyin.so /usr/lib64/fcitx/</span><br></pre></td></tr></table></figure>
+<h2 id="转换deb为rpm包"><a href="#转换deb为rpm包" class="headerlink" title="转换deb为rpm包"></a>转换deb为rpm包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install dpkg alien</span><br><span class="line">sudo alien -vcr sogoupinyin_2.2.0.0108_amd64.deb</span><br></pre></td></tr></table></figure>
+<h2 id="安装搜狗拼音输入法-1"><a href="#安装搜狗拼音输入法-1" class="headerlink" title="安装搜狗拼音输入法"></a>安装搜狗拼音输入法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install qtwebkit opencc redhat-lsb</span><br><span class="line">sudo rpm -ivh --force sogoupinyin-2.2.0.0108-2.x86_64.rpm</span><br><span class="line">cp /usr/lib/x86_64-linux-gnu/fcitx/fcitx-sogoupinyin.so /usr/lib64/fcitx/</span><br></pre></td></tr></table></figure>
 <h2 id="重载fcitx"><a href="#重载fcitx" class="headerlink" title="重载fcitx"></a>重载fcitx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fcitx -r</span><br></pre></td></tr></table></figure>
 <h2 id="添加搜狗输入法"><a href="#添加搜狗输入法" class="headerlink" title="添加搜狗输入法"></a>添加搜狗输入法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fcitx-configtool</span><br></pre></td></tr></table></figure>
 <p>在弹出框中,选择查找sogou并添加搜狗输入法</p>
@@ -446,7 +1820,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -457,7 +1831,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

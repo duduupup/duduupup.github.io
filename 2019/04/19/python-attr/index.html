@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在python中,一个类或者类实例中的属性是动态的,也就是说,你可以往一个类或者实例中添加或者删除一个属性. python管理属性的方法一般有三种:  操作符重载(__getattr__, __setattr__, __delattr__和__getattribute__) property内置函数 描述符协议(descriptor)  使用操作符重载管理属性 __getattr__方法将拦截所有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python属性管理">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/python-attr/index.html">
+<meta property="og:site_name" content="duduupup">
+<meta property="og:description" content="在python中,一个类或者类实例中的属性是动态的,也就是说,你可以往一个类或者实例中添加或者删除一个属性. python管理属性的方法一般有三种:  操作符重载(__getattr__, __setattr__, __delattr__和__getattribute__) property内置函数 描述符协议(descriptor)  使用操作符重载管理属性 __getattr__方法将拦截所有">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-19T07:25:21.273Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python属性管理">
+<meta name="twitter:description" content="在python中,一个类或者类实例中的属性是动态的,也就是说,你可以往一个类或者实例中添加或者删除一个属性. python管理属性的方法一般有三种:  操作符重载(__getattr__, __setattr__, __delattr__和__getattribute__) property内置函数 描述符协议(descriptor)  使用操作符重载管理属性 __getattr__方法将拦截所有">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/19/python-attr/">
+
+
+
+
+
+  <title>python属性管理 | duduupup</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">duduupup</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">生命不息 折腾不止</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/python-attr/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="duduupup">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="duduupup">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python属性管理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T12:41:09+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在python中,一个类或者类实例中的属性是动态的,也就是说,你可以往一个类或者实例中添加或者删除一个属性.</p>
+<p>python管理属性的方法一般有三种:</p>
+<ul>
+<li>操作符重载(<code>__getattr__, __setattr__, __delattr__和__getattribute__</code>)</li>
+<li>property内置函数</li>
+<li>描述符协议(descriptor)</li>
+</ul>
+<h1 id="使用操作符重载管理属性"><a href="#使用操作符重载管理属性" class="headerlink" title="使用操作符重载管理属性"></a>使用操作符重载管理属性</h1><ul>
+<li><code>__getattr__</code>方法将拦截所有未定义的属性获取</li>
+<li><code>__getattribute__</code>方法将拦截所有属性的获取</li>
+<li><code>__setattr__</code>方法将拦截所有的属性赋值</li>
+<li><code>__delattr__</code>方法将拦截所有的属性删除</li>
+</ul>
+<p>值得注意的是,<br>由于<code>__getattribute__, __setattr__, __delattr__</code>方法均是对所有的属性进行拦截,因而在重载他们的时候,一定要避免递归调用(否则,会引起死循环);<br>对于<code>__getattr__</code>方法,则没有那么多限制.<br>另外, 操作符重载方法调用不能委托给被包装的对象, 除非包装类自己重新定义这些方法(?).</p>
+<h2 id="重载-setattr-方法"><a href="#重载-setattr-方法" class="headerlink" title="重载__setattr__方法"></a>重载<code>__setattr__</code>方法</h2><p>在重载<code>__setattr__</code>方法时,不能使用<code>self.name = value</code>格式,否则会导致递归调用而陷入死循环,正确的做法应该是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def __setattr__(self, name, value):</span><br><span class="line">    # do something</span><br><span class="line">    object.__setattr__(self, name, value)</span><br><span class="line">    # do something</span><br></pre></td></tr></table></figure></p>
+<p>也可以将<code>object.__setattr__(self, name, value)</code>换成<code>self.__dict__[name] = value</code>,<br>但是一定要注意如果重载了<code>__getattribute__</code>方法,则必须保证<code>__getattribute__</code>方法重载正确.</p>
+<h2 id="重载-delattr-方法"><a href="#重载-delattr-方法" class="headerlink" title="重载__delattr__方法"></a>重载<code>__delattr__</code>方法</h2><p>在重载<code>__delattr__</code>方法时,不能使用<code>del self.name</code>格式,否则,它也会导致递归调用而陷入死循环.正确的做法应该是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def __delattr__(self, name):</span><br><span class="line">    # do something</span><br><span class="line">    object.__delattr__(self, name)</span><br><span class="line">    # do something</span><br></pre></td></tr></table></figure></p>
+<p>也可以将<code>object.__delattr__(self, name)</code>换成<code>del self.__dict__[name]</code>,<br>同样要注意如果重载了<code>__getattribute__</code>方法,则必须保证<code>__getattribute__</code>方法重载正确.</p>
+<h2 id="重载-getattribute-方法"><a href="#重载-getattribute-方法" class="headerlink" title="重载__getattribute__方法"></a>重载<code>__getattribute__</code>方法</h2><p>在重载<code>__getattribute__</code>方法时,不能使用<code>return self.name</code>格式,否则,也会导致递归调用而陷入死循环.正确的做法是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def __getattribute__(self, name):</span><br><span class="line">    # do something</span><br><span class="line">    value = object.__getattribute__(self, name)</span><br><span class="line">    # do something</span><br><span class="line">    return value</span><br></pre></td></tr></table></figure></p>
+<p>特别注意,不能将<code>object.__getattribute__(self, name)</code>替换为<code>self.__dict__[name]</code>来避免循环,<br>因为<code>self.__dict__</code>也会触发属性获取,所以依然会导致递归调用.</p>
+<h2 id="重载-getattr-方法"><a href="#重载-getattr-方法" class="headerlink" title="重载__getattr__方法"></a>重载<code>__getattr__</code>方法</h2><p>没有特殊要求,它的作用一般是用来定义用户获取了类或者类实例中没有定义的属性时,程序应该做出的回应.</p>
+<h1 id="使用descriptor管理属性"><a href="#使用descriptor管理属性" class="headerlink" title="使用descriptor管理属性"></a>使用descriptor管理属性</h1><p>descriptor是一种实现了<code>__get__</code>, <code>__set__</code>和<code>__delete__</code>这三种成员方法中任意一个或多个的特殊类.<br>下面是示例代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">class RevealAccess(object):</span><br><span class="line">    def __init__(self, val, name):</span><br><span class="line">        self.val = val</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def __get__(self, obj, cls):</span><br><span class="line">        print(&apos;get...&apos;, self.name)</span><br><span class="line">        return self.val</span><br><span class="line"></span><br><span class="line">    def __set__(self, obj, val):</span><br><span class="line">        print(&apos;set...&apos;, self.name)</span><br><span class="line">        self.val = val</span><br><span class="line"></span><br><span class="line">    def __delete__(self, obj):</span><br><span class="line">        print(&apos;delete...&apos;)</span><br><span class="line">        del self.val</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class MyClass(object):</span><br><span class="line">    x = RevealAccess(0, &apos;x&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [1]: m = MyClass()</span><br><span class="line"></span><br><span class="line">In [2]: m.x = 1</span><br><span class="line">(&apos;set...&apos;, &apos;x&apos;)</span><br><span class="line"></span><br><span class="line">In [3]: m.x</span><br><span class="line">(&apos;get...&apos;, &apos;x&apos;)</span><br><span class="line">Out[3]: 1</span><br><span class="line"></span><br><span class="line">In [4]: del m.x</span><br><span class="line">delete...</span><br><span class="line"></span><br><span class="line">In [5]: m.x</span><br><span class="line">(&apos;get...&apos;, &apos;x&apos;)</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-7-ed46b668a20d&gt; in &lt;module&gt;()</span><br><span class="line">----&gt; 1 m.x</span><br><span class="line"></span><br><span class="line">/data/projects/ambari/ambari-stack/scripts/test.py in __get__(self, obj, cls)</span><br><span class="line">     47     def __get__(self, obj, cls):</span><br><span class="line">     48         print(&apos;get...&apos;, self.name)</span><br><span class="line">---&gt; 49         return self.val</span><br><span class="line">     50 </span><br><span class="line">     51     def __set__(self, obj, val):</span><br><span class="line"></span><br><span class="line">AttributeError: &apos;RevealAccess&apos; object has no attribute &apos;val&apos;</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用property类管理属性-只适用于新式类"><a href="#使用property类管理属性-只适用于新式类" class="headerlink" title="使用property类管理属性(只适用于新式类)"></a>使用property类管理属性(只适用于新式类)</h1><h2 id="property类"><a href="#property类" class="headerlink" title="property类"></a>property类</h2><p>property类实际上是python内部已经实现好的一种descriptor.在<strong>builtin</strong>.py, 可以看到property类的定义如下(内建类看不到具体实现,可以看到大致模样):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class property(object):</span><br><span class="line">    def deleter(self, *args, **kwargs): </span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def getter(self, *args, **kwargs): </span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def setter(self, *args, **kwargs): </span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def __delete__(self, obj): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; descr.__delete__(obj) &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def __get__(self, obj, type=None): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; descr.__get__(obj[, type]) -&gt; value &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line">        </span><br><span class="line">    def __set__(self, obj, value): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; descr.__set__(obj, value) &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line">    </span><br><span class="line">    def __getattribute__(self, name): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; x.__getattribute__(&apos;name&apos;) &lt;==&gt; x.name &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    def __init__(self, fget=None, fset=None, fdel=None, doc=None): # known special case of property.__init__</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        property(fget=None, fset=None, fdel=None, doc=None) -&gt; property attribute</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    @staticmethod # known case of __new__</span><br><span class="line">    def __new__(S, *more): # real signature unknown; restored from __doc__</span><br><span class="line">        &quot;&quot;&quot; T.__new__(S, ...) -&gt; a new object with type S, a subtype of T &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">    fdel = property(lambda self: object(), lambda self, v: None, lambda self: None)  # default</span><br><span class="line"></span><br><span class="line">    fget = property(lambda self: object(), lambda self, v: None, lambda self: None)  # default</span><br><span class="line"></span><br><span class="line">    fset = property(lambda self: object(), lambda self, v: None, lambda self: None)  # default</span><br></pre></td></tr></table></figure></p>
+<h2 id="示例-property实例"><a href="#示例-property实例" class="headerlink" title="示例: property实例"></a>示例: property实例</h2><p>说明, property的fget必选,其他两个参数可选<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">class A(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&apos;init...&apos;)</span><br><span class="line">        self._x = 0</span><br><span class="line"></span><br><span class="line">    def getx(self):</span><br><span class="line">        print(&apos;getx...&apos;)</span><br><span class="line">        return self._x</span><br><span class="line"></span><br><span class="line">    def setx(self, value):</span><br><span class="line">        print(&apos;setx...&apos;)</span><br><span class="line">        self._x = value</span><br><span class="line"></span><br><span class="line">    def delx(self):</span><br><span class="line">        print(&apos;delx...&apos;)</span><br><span class="line">        del self._x</span><br><span class="line"></span><br><span class="line">    x = property(getx, setx, delx)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [1]: a = A()</span><br><span class="line">init...</span><br><span class="line"></span><br><span class="line">In [2]: a.x = 1</span><br><span class="line">setx...</span><br><span class="line"></span><br><span class="line">In [3]: a.x</span><br><span class="line">getx...</span><br><span class="line">Out[3]: 1</span><br><span class="line"></span><br><span class="line">In [4]: del a.x</span><br><span class="line">delx...</span><br><span class="line"></span><br><span class="line">In [5]: a.x</span><br><span class="line">getx...</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-9-e27186f28a17&gt; in &lt;module&gt;()</span><br><span class="line">----&gt; 1 a.x</span><br><span class="line"></span><br><span class="line">/data/projects/ambari/ambari-stack/scripts/test.py in getx(self)</span><br><span class="line">      6     def getx(self):</span><br><span class="line">      7         print(&apos;getx...&apos;)</span><br><span class="line">----&gt; 8         return self._x</span><br><span class="line">      9 </span><br><span class="line">     10     def setx(self, value):</span><br><span class="line"></span><br><span class="line">AttributeError: &apos;A&apos; object has no attribute &apos;_x&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="示例-property装饰器"><a href="#示例-property装饰器" class="headerlink" title="示例: property装饰器"></a>示例: property装饰器</h2><p>说明,可以只有@property<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">class B(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&apos;init...&apos;)</span><br><span class="line">        self._x = 0</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def x(self):</span><br><span class="line">        print(&apos;getx...&apos;)</span><br><span class="line">        return self._x</span><br><span class="line"></span><br><span class="line">    @x.setter</span><br><span class="line">    def x(self, value):</span><br><span class="line">        print(&apos;setx...&apos;)</span><br><span class="line">        self._x = value</span><br><span class="line"></span><br><span class="line">    @x.deleter</span><br><span class="line">    def x(self):</span><br><span class="line">        print(&apos;delx...&apos;)</span><br><span class="line">        del self._x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">In [1]: b = B()</span><br><span class="line">init...</span><br><span class="line"></span><br><span class="line">In [2]: b.x = 1</span><br><span class="line">setx...</span><br><span class="line"></span><br><span class="line">In [3]: b.x</span><br><span class="line">getx...</span><br><span class="line">Out[3]: 2</span><br><span class="line"></span><br><span class="line">In [4]: del b.x</span><br><span class="line">delx...</span><br><span class="line"></span><br><span class="line">In [5]: b.x</span><br><span class="line">getx...</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-10-252ebe2d9b6c&gt; in &lt;module&gt;()</span><br><span class="line">----&gt; 1 b.x</span><br><span class="line"></span><br><span class="line">/data/projects/ambari/ambari-stack/scripts/test.py in x(self)</span><br><span class="line">     27     def x(self):</span><br><span class="line">     28         print(&apos;getx...&apos;)</span><br><span class="line">---&gt; 29         return self._x</span><br><span class="line">     30 </span><br><span class="line">     31     @x.setter</span><br><span class="line"></span><br><span class="line">AttributeError: &apos;B&apos; object has no attribute &apos;_x&apos;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/18/bond-lacp/" rel="next" title="详说网卡绑定的LACP模式">
+                <i class="fa fa-chevron-left"></i> 详说网卡绑定的LACP模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/19/python-encoding/" rel="prev" title="python-encoding">
+                python-encoding <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">duduupup</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用操作符重载管理属性"><span class="nav-number">1.</span> <span class="nav-text">使用操作符重载管理属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#重载-setattr-方法"><span class="nav-number">1.1.</span> <span class="nav-text">重载__setattr__方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载-delattr-方法"><span class="nav-number">1.2.</span> <span class="nav-text">重载__delattr__方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载-getattribute-方法"><span class="nav-number">1.3.</span> <span class="nav-text">重载__getattribute__方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载-getattr-方法"><span class="nav-number">1.4.</span> <span class="nav-text">重载__getattr__方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用descriptor管理属性"><span class="nav-number">2.</span> <span class="nav-text">使用descriptor管理属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用property类管理属性-只适用于新式类"><span class="nav-number">3.</span> <span class="nav-text">使用property类管理属性(只适用于新式类)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#property类"><span class="nav-number">3.1.</span> <span class="nav-text">property类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例-property实例"><span class="nav-number">3.2.</span> <span class="nav-text">示例: property实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例-property装饰器"><span class="nav-number">3.3.</span> <span class="nav-text">示例: property装饰器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">duduupup</span>
+
+  
+</div>
+
+
+  <div class="powered-by">个人专属</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">博客</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

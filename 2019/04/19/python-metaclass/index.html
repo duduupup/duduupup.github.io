@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CentOS,Tools,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="CentOS7的gnome界面经常会卡死,可以ssh(current_user@host)连接进入shell,通过如下命令令其复活:1pkill -9 gnome-shell 由于gnome界面经常卡死,可以将该命令写入到用户的~/.bashrc文件中,如下所示:1alias gnome-relive=&amp;quot;pkill -9 gnome-shell&amp;quot; 这样就可以使用gnome-re">
-<meta name="keywords" content="CentOS,Tools">
+<meta name="description" content="元类,顾名思义就是生成类的类.type是比较特殊的元类,一般情况下,没有指定类的元类,就是用type创建的. type在__builtin__.py中type的定义如下:1234567891011121314class type(object):    &amp;quot;&amp;quot;&amp;quot;    type(object) -&amp;gt; the object&amp;apos;s type    type(n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS7界面卡死的解决方法">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/gnome-relive/index.html">
+<meta property="og:title" content="python元类">
+<meta property="og:url" content="http://yoursite.com/2019/04/19/python-metaclass/index.html">
 <meta property="og:site_name" content="duduupup">
-<meta property="og:description" content="CentOS7的gnome界面经常会卡死,可以ssh(current_user@host)连接进入shell,通过如下命令令其复活:1pkill -9 gnome-shell 由于gnome界面经常卡死,可以将该命令写入到用户的~/.bashrc文件中,如下所示:1alias gnome-relive=&amp;quot;pkill -9 gnome-shell&amp;quot; 这样就可以使用gnome-re">
+<meta property="og:description" content="元类,顾名思义就是生成类的类.type是比较特殊的元类,一般情况下,没有指定类的元类,就是用type创建的. type在__builtin__.py中type的定义如下:1234567891011121314class type(object):    &amp;quot;&amp;quot;&amp;quot;    type(object) -&amp;gt; the object&amp;apos;s type    type(n">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-08T06:22:00.505Z">
+<meta property="og:updated_time" content="2019-04-19T09:30:26.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS7界面卡死的解决方法">
-<meta name="twitter:description" content="CentOS7的gnome界面经常会卡死,可以ssh(current_user@host)连接进入shell,通过如下命令令其复活:1pkill -9 gnome-shell 由于gnome界面经常卡死,可以将该命令写入到用户的~/.bashrc文件中,如下所示:1alias gnome-relive=&amp;quot;pkill -9 gnome-shell&amp;quot; 这样就可以使用gnome-re">
+<meta name="twitter:title" content="python元类">
+<meta name="twitter:description" content="元类,顾名思义就是生成类的类.type是比较特殊的元类,一般情况下,没有指定类的元类,就是用type创建的. type在__builtin__.py中type的定义如下:1234567891011121314class type(object):    &amp;quot;&amp;quot;&amp;quot;    type(object) -&amp;gt; the object&amp;apos;s type    type(n">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/gnome-relive/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/19/python-metaclass/">
 
 
 
 
 
-  <title>CentOS7界面卡死的解决方法 | duduupup</title>
+  <title>python元类 | duduupup</title>
   
 
 
@@ -263,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/gnome-relive/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/python-metaclass/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="duduupup">
@@ -280,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CentOS7界面卡死的解决方法</h1>
+          <h1 class="post-title" itemprop="name headline">python元类</h1>
         
 
         <div class="post-meta">
@@ -292,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T14:08:33+08:00">
-                2019-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T15:50:30+08:00">
+                2019-04-19
               </time>
             
 
@@ -315,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -352,9 +351,14 @@
       
 
       
-        <p>CentOS7的gnome界面经常会卡死,可以ssh(current_user@host)连接进入shell,通过如下命令令其复活:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill -9 gnome-shell</span><br></pre></td></tr></table></figure></p>
-<p>由于gnome界面经常卡死,可以将该命令写入到用户的~/.bashrc文件中,如下所示:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias gnome-relive=&quot;pkill -9 gnome-shell&quot;</span><br></pre></td></tr></table></figure></p>
-<p>这样就可以使用gnome-relive命令令gnome界面复活了</p>
+        <p>元类,顾名思义就是生成类的类.type是比较特殊的元类,一般情况下,没有指定类的元类,就是用type创建的.</p>
+<h1 id="type"><a href="#type" class="headerlink" title="type"></a>type</h1><p>在<code>__builtin__.py</code>中type的定义如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class type(object):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    type(object) -&gt; the object&apos;s type</span><br><span class="line">    type(name, bases, dict) -&gt; a new type</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    def __init__(cls, what, bases=None, dict=None): # known special case of type.__init__</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        type(object) -&gt; the object&apos;s type</span><br><span class="line">        type(name, bases, dict) -&gt; a new type</span><br><span class="line">        # (copied from class doc)</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        pass</span><br><span class="line">     </span><br><span class="line">    # ...</span><br></pre></td></tr></table></figure></p>
+<p>使用type创建一个类,具体如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [1]: def fn(self, name=&apos;world&apos;):</span><br><span class="line">   ...:     print(&apos;Hello, %s!&apos; % name)</span><br><span class="line">   ...:     </span><br><span class="line"></span><br><span class="line">In [2]: Hello = type(&apos;Hello&apos;, (object,), dict(say_hello=fn))</span><br><span class="line"></span><br><span class="line">In [3]: h = Hello()</span><br><span class="line"></span><br><span class="line">In [4]: type(h)</span><br><span class="line">Out[4]: __main__.Hello</span><br><span class="line"></span><br><span class="line">In [5]: h.say_hello()</span><br><span class="line">Hello, world!</span><br></pre></td></tr></table></figure></p>
+<h1 id="new-和-init"><a href="#new-和-init" class="headerlink" title="__new__和__init__"></a><code>__new__</code>和<code>__init__</code></h1><p>可以理解为: </p>
+<ul>
+<li><code>__init__</code>函数类似与c++或java的构造函数,用来负责类的实例化;</li>
+<li><code>__new__</code>是在构造函数<h1 id="自定义元类"><a href="#自定义元类" class="headerlink" title="自定义元类"></a>自定义元类</h1>自定义元类必须继承于type</li>
+</ul>
 
       
     </div>
@@ -370,14 +374,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/CentOS/" rel="tag"># CentOS</a>
-          
-            <a href="/tags/Tools/" rel="tag"># Tools</a>
-          
-        </div>
-      
 
       
       
@@ -387,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/06/python-remote-debug/" rel="next" title="使用pydevd对python进行远程调试">
-                <i class="fa fa-chevron-left"></i> 使用pydevd对python进行远程调试
+              <a href="/2019/04/19/python-encoding/" rel="next" title="python-encoding">
+                <i class="fa fa-chevron-left"></i> python-encoding
               </a>
             
           </div>
@@ -397,8 +393,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/09/java-basic/" rel="prev" title="java基础知识">
-                java基础知识 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/29/rt/" rel="prev" title="CentOS7无法设置进程为实时进程">
+                CentOS7无法设置进程为实时进程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -451,8 +447,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -512,6 +517,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#type"><span class="nav-number">1.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new-和-init"><span class="nav-number">2.</span> <span class="nav-text">__new__和__init__</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义元类"><span class="nav-number">3.</span> <span class="nav-text">自定义元类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
